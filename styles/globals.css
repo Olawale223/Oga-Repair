@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-page font-sans text-ink antialiased;
+    background-image: radial-gradient(circle at top left, rgba(255, 107, 44, 0.04), transparent 24%);
+  }
+
+  ::selection {
+    background-color: rgba(255, 107, 44, 0.22);
+    color: var(--color-ink);
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-shell px-4 sm:px-6 lg:px-10;
+  }
+
+  .section-gap {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .surface-card {
+    @apply rounded-lg border border-line bg-surface shadow-soft;
+  }
+
+  .input-reset {
+    @apply w-full rounded-sm border border-line bg-surface px-5 py-3 text-base text-ink placeholder:text-smoke transition duration-300 ease-productive focus:border-accent focus:shadow-focus;
+  }
+
+  .eyebrow-copy {
+    @apply text-sm font-medium uppercase tracking-[0.16em] text-muted;
+  }
+
+  .map-frame {
+    filter: drop-shadow(0 18px 28px rgba(255, 107, 44, 0.12));
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-shell-gradient {
+    background-image: radial-gradient(circle at 14% 12%, rgba(255, 107, 44, 0.14), transparent 20%), radial-gradient(circle at 90% 14%, rgba(76, 101, 179, 0.12), transparent 18%);
+  }
+
+  .auth-photo-mask {
+    border-top-left-radius: 120px;
+    border-bottom-left-radius: 120px;
+  }
+
+  .testimonial-outline {
+    position: relative;
+  }
+
+  .testimonial-outline::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(255, 107, 44, 0.45);
+    pointer-events: none;
+  }
+
+  .world-map-wrap img {
+    width: 100%;
+    height: auto;
+  }
+}
