@@ -11,27 +11,16 @@ export default function CheckboxField({
   ...props
 }) {
   return (
-    <label
-      htmlFor={id}
-      className={cn(
-        "flex cursor-pointer items-start gap-3 text-sm text-ink",
-        className
-      )}
-    >
-      <input
-        id={id}
-        type="checkbox"
-        className="mt-1 h-4 w-4 rounded border-lineStrong text-accent focus:ring-accent"
-        {...props}
-      />
-      <span>
+    <label htmlFor={id} className={cn("checkbox-label", className)}>
+      <input id={id} type="checkbox" className="checkbox-input" {...props} />
+      <span className="checkbox-text">
         <span>{label}</span>{" "}
         {linkLabel ? (
-          <Link href={linkHref} className="underline decoration-accent underline-offset-2">
+          <Link href={linkHref} className="checkbox-link">
             {linkLabel}
           </Link>
         ) : null}
-        {description ? <span className="block text-muted">{description}</span> : null}
+        {description ? <span className="checkbox-description">{description}</span> : null}
       </span>
     </label>
   );

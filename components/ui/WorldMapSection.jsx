@@ -13,17 +13,17 @@ export default function WorldMapSection({
   children
 }) {
   return (
-    <section className={cn("space-y-10", className)}>
-      <div className="world-map-wrap map-frame">
+    <section className={cn("world-map-section", className)}>
+      <div className="world-map-container">
         <Image
           src={media.worldMap}
           alt="Global coverage map"
           priority={false}
-          className={cn("mx-auto h-auto w-full max-w-[1050px] object-contain", mapClassName)}
+          className={cn("world-map-image", mapClassName)}
         />
       </div>
       {(prefix || accent || suffix || subtitle || children) && (
-        <div className="space-y-6 text-center">
+        <div className="world-map-content">
           {(prefix || accent || suffix || subtitle) && (
             <SectionHeading
               prefix={prefix}

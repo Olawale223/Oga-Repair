@@ -10,17 +10,17 @@ export default function FilterPanel({
   onToggleFilter
 }) {
   return (
-    <aside className="surface-card rounded-xl px-5 py-7 sm:px-7">
-      <div className="mb-6 flex items-center gap-3">
-        <h2 className="text-xl font-semibold text-ink">Filter</h2>
-        <span className="text-muted">↕</span>
+    <aside className="filter-panel">
+      <div className="filter-header">
+        <h2 className="filter-title">Filter</h2>
+        <span className="filter-icon">↕</span>
       </div>
-      <div className="space-y-7">
+      <div className="filter-groups">
         {filterGroups.map((group) => (
-          <div key={group.label} className="space-y-4">
-            <h3 className="text-xl font-semibold text-ink">{group.label}</h3>
+          <div key={group.label} className="filter-group">
+            <h3 className="filter-group-title">{group.label}</h3>
             {group.type === "tags" ? (
-              <div className="flex flex-wrap gap-3">
+              <div className="filter-tags">
                 {group.options.map((option) => (
                   <button
                     type="button"
@@ -39,9 +39,9 @@ export default function FilterPanel({
                 ))}
               </div>
             ) : (
-              <div className="space-y-3">
+              <div className="filter-checkboxes">
                 {group.options.map((option) => (
-                  <div key={option.value} className="flex items-center justify-between gap-4">
+                  <div key={option.value} className="filter-checkbox-item">
                     <CheckboxField
                       id={`${group.value}-${option.value}`}
                       label={option.label}
@@ -51,17 +51,13 @@ export default function FilterPanel({
                       }
                       onChange={() => onToggleFilter(group.value, option.value)}
                     />
-                    <span className="text-muted">{option.count}</span>
+                    <span className="filter-count">{option.count}</span>
                   </div>
                 ))}
               </div>
             )}
             {group.showMore ? (
-              <Button
-                type="button"
-                variant="primary"
-                className="min-h-11 w-full rounded-sm text-sm"
-              >
+              <Button type="button" variant="primary" className="filter-show-more">
                 Show More
               </Button>
             ) : null}

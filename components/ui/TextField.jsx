@@ -12,22 +12,22 @@ export default function TextField({
   const InputTag = textarea ? "textarea" : "input";
 
   return (
-    <label className={cn("block space-y-2", className)} htmlFor={id}>
+    <label className={cn("text-field", className)} htmlFor={id}>
       {(label || hint) && (
-        <span className="flex items-center justify-between gap-3">
+        <span className="text-field-header">
           {label ? (
-            <span className="text-base font-medium text-ink">{label}</span>
+            <span className="text-field-label">{label}</span>
           ) : (
             <span />
           )}
-          {hint ? <span className="text-sm text-ink">{hint}</span> : null}
+          {hint ? <span className="text-field-hint">{hint}</span> : null}
         </span>
       )}
       <InputTag
         id={id}
         className={cn(
-          "input-reset",
-          textarea && "min-h-[138px] resize-none pt-4",
+          "text-field-input",
+          textarea && "text-field-textarea",
           inputClassName
         )}
         {...props}

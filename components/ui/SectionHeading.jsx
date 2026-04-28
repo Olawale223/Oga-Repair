@@ -14,27 +14,27 @@ export default function SectionHeading({
   return (
     <div
       className={cn(
-        "space-y-4",
-        align === "center" && "mx-auto text-center",
-        align === "left" && "text-left",
+        "section-heading",
+        align === "center" && "section-heading-center",
+        align === "left" && "section-heading-left",
         className
       )}
     >
       <h2
         className={cn(
-          "font-semibold text-ink text-balance",
-          size === "display" && "text-display",
-          size === "section" && "text-section",
-          size === "title" && "text-title",
+          "section-title",
+          size === "display" && "section-title-display",
+          size === "section" && "section-title-section",
+          size === "title" && "section-title-title",
           titleClassName
         )}
       >
         {prefix ? <span>{prefix} </span> : null}
-        {accent ? <span className="text-accent">{accent}</span> : null}
+        {accent ? <span className="section-title-accent">{accent}</span> : null}
         {suffix ? <span> {suffix}</span> : null}
       </h2>
       {subtitle ? (
-        <p className={cn("mx-auto max-w-text text-body text-muted", subtitleClassName)}>
+        <p className={cn("section-subtitle", subtitleClassName)}>
           {subtitle}
         </p>
       ) : null}

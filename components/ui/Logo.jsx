@@ -8,16 +8,16 @@ export default function Logo({ className, tone = "light" }) {
     <Link
       href="/"
       aria-label="Oga Repair home"
-      className={cn("inline-flex items-center gap-2.5", className)}
+      className={cn("logo", className)}
     >
-      <Image src={logoMark} alt="" className="h-7 w-7" priority />
+      <Image src={logoMark} alt="" className="logo-icon" priority />
       <span
-        className={cn("text-[1.2rem] font-semibold tracking-tight", {
-          "text-surface": tone === "light",
-          "text-ink": tone === "dark"
+        className={cn("logo-text", {
+          "logo-text-light": tone === "light",
+          "logo-text-dark": tone === "dark"
         })}
       >
-        Oga <span className="text-accent">Repair</span>
+        Oga <span className="logo-text-accent">Repair</span>
       </span>
     </Link>
   );
